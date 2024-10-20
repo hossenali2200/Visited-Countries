@@ -1,17 +1,21 @@
-import { useState } from 'react'
  
-import './App.css'
+import { useState } from 'react';
+import About from './components/About'
+import Footer from './components/Footer'
 import Header from './components/Header'
+import Hero from './components/Hero';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [searchQuery, setSearchQuery] = useState(""); // State to handle search query 
+   
 
   return (
     <>
-    <Header/>
-       <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+     <Header onSearch={setSearchQuery} />
+     <Hero onSearch={setSearchQuery}/>
+    <About searchQuery={searchQuery}/>
+    <Footer/>
+       
     </>
   )
 }
